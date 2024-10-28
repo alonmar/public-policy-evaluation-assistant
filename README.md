@@ -14,12 +14,26 @@ The main goal is to create a support system for policymakers and public policy p
 - **Structured Pros and Cons**: Each response includes a summary of the policy's pros and cons, ensuring a balanced and neutral focus.
 - **Professional, Objective Tone**: Designed to provide accurate information without additional assumptions or extrapolations beyond the context.
 
-## Project Structure
+## Notebooks
 
-- **Data Retrieval**: Components to retrieve academic articles, documents, and other relevant data for content generation.
-- **Data Chunking**: Long texts are divided into 240-word chunks for efficient search and retrieval. Chunks are configurable for overlap, maintaining context across sections.
-- **Response Generation**: A language model receives a query and uses retrieved context to answer with specific pros and cons, maintaining a clear, concise structure.
-- **Parameter Configuration**: Customizable chunk size and overlap parameters optimize response accuracy based on context.
+### Notebook Summary: 01_CHUNK_ARTICLES.IPYNB
+
+This notebook is designed to process PDF files, convert them to text, split the text into smaller chunks, and save these chunks as JSON files
+
+### Notebook Summary: 02_SEARCH_AND_INDEX_IMPLEMENTATION.ipynb
+
+This Jupyter Notebook demonstrates the process of setting up and utilizing a search and indexing system using Elasticsearch and Sentence Transformers
+
+### Notebook Summary: 03_BUILD_GROUND_TRUTH_DATA.IPYNB
+
+This notebook is designed to build ground truth data for a policy advisory system using machine learning models.
+
+### Notebook Summary: RAG_EVALUATION.ipynb
+
+The Jupyter Notebook `retrieval_evaluation.ipynb` is designed to evaluate the performance of a retrieval system using Elasticsearch and Sentence Transformers.
+
+### Notebook Summary: RAG_EVALUATION.ipynb
+Is a Jupyter Notebook that contains code to evaluate a Retrieval-Augmented Generation (RAG) system.
 
 ## Usage Example
 
@@ -37,32 +51,30 @@ The assistant will generate a response based solely on verified contextual infor
 
 ## Installation Instructions
 
-1. Clone this repository to your local machine.
-    ```bash
-    git clone https://github.com/alonmar/public-policy-evaluation-assistant.git
-    cd public-policy-evaluation-assistant
-    ```
-2. Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3. Set up your articles and reports database in the `data/` directory and ensure to update the retrieval index.
+First, you need to initialize Elasticsearch by running:
 
-## Usage
-
-To launch the assistant, run the following command and follow the instructions:
-```bash
-python run_assistant.py
+```
+python app\elasticsearch_prep.py
 ```
 
-## Customization
+To run the app and start sending queries, navigate to the `/app` directory:
 
-Chunking Parameters: You can adjust chunk size and overlap in the config.py file.
-Language Model: Choose between a local model (such as LLaMA) or an API-based model (such as GPT-4).
+```
+cd /app
+```
 
-## Contributions
-Contributions are welcome. If you would like to improve the assistant, please open a pull request or discuss your ideas in the issues section.
+Then execute:
 
+```
+streamlit run .\app.py
+```
 
+and visit:
 
-python .\app\elasticsearch_prep.py
+```
+http://localhost:8501/
+```
+
+And you can start to ask
+
+![Housing Policy Assistant](image.png)

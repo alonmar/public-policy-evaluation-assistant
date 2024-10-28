@@ -4,23 +4,23 @@ from rag import rag
 
 # import db
 
-# Inicializar la base de datos
+# Initialize the database
 # db.init_db()
 
-# Título de la aplicación
+# Application title
 st.title("Public Policy Evaluation Assistant")
 
-# Sección para hacer preguntas
-st.header("Pregunta")
-question = st.text_input("Escribe tu pregunta aquí:")
+# Section to ask questions
+st.header("Question")
+question = st.text_input("Write your question here:")
 
-if st.button("Enviar pregunta"):
+if st.button("Submit question"):
     if not question:
-        st.error("No se proporcionó ninguna pregunta.")
+        st.error("No question provided.")
     elif len(question) < 20:
-        st.error("La pregunta debe tener al menos 20 caracteres.")
+        st.error("The question must be at least 20 characters long.")
     else:
-        with st.spinner("Procesando tu pregunta..."):
+        with st.spinner("Processing your question..."):
             conversation_id = str(uuid.uuid4())
             response = rag(question)
             result = {
@@ -29,14 +29,14 @@ if st.button("Enviar pregunta"):
                 "response": response,
             }
             # db.save_conversation(conversation_id, question, answer)
-        st.success("Pregunta enviada con éxito.")
-        st.write("Resultado:")
+        st.success("Question submitted successfully.")
+        st.write("Result:")
         st.write(response["answer"])
-        st.write("¿Te resultó útil esta respuesta?")
+        st.write("Did you find this answer useful?")
         col1, col2 = st.columns(2)
-        if col1.button("👍 Sí"):
-            st.success("Gracias por tu feedback positivo.")
+        if col1.button("👍 Yes"):
+            st.success("Thank you for your positive feedback.")
             # db.save_feedback(conversation_id, "positive")
         if col2.button("👎 No"):
-            st.error("Gracias por tu feedback negativo.")
+            st.error("Thank you for your negative feedback.")
             # db.save_feedback(conversation_id, "negative")
