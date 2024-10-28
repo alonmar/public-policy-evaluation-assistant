@@ -16,23 +16,23 @@ The main goal is to create a support system for policymakers and public policy p
 
 ## Notebooks
 
-### Notebook Summary: 01_CHUNK_ARTICLES.IPYNB
+### Notebook Summary: [01_chunk_articles.IPYNB](https://github.com/alonmar/public-policy-evaluation-assistant/blob/main/notebooks/01_chunk_articles.ipynb)
 
 This notebook is designed to process PDF files, convert them to text, split the text into smaller chunks, and save these chunks as JSON files
 
-### Notebook Summary: 02_SEARCH_AND_INDEX_IMPLEMENTATION.ipynb
+### Notebook Summary: [02_search_and_index_implemantation.ipynb](https://github.com/alonmar/public-policy-evaluation-assistant/blob/main/notebooks/02_search_and_index_implemantation.ipynb)
 
 This Jupyter Notebook demonstrates the process of setting up and utilizing a search and indexing system using Elasticsearch and Sentence Transformers
 
-### Notebook Summary: 03_BUILD_GROUND_TRUTH_DATA.IPYNB
+### Notebook Summary: [03_build_ground_truth_data.IPYNB](https://github.com/alonmar/public-policy-evaluation-assistant/blob/main/notebooks/03_build_ground_truth_data.ipynb)
 
 This notebook is designed to build ground truth data for a policy advisory system using machine learning models.
 
-### Notebook Summary: RAG_EVALUATION.ipynb
+### Notebook Summary: [RAG_evaluation.ipynb](https://github.com/alonmar/public-policy-evaluation-assistant/blob/main/notebooks/RAG_evaluation.ipynb)
 
 The Jupyter Notebook `retrieval_evaluation.ipynb` is designed to evaluate the performance of a retrieval system using Elasticsearch and Sentence Transformers.
 
-### Notebook Summary: RAG_EVALUATION.ipynb
+### Notebook Summary: [retrieval_evaluation.ipynb](https://github.com/alonmar/public-policy-evaluation-assistant/blob/main/notebooks/retrieval_evaluation.ipynb)
 Is a Jupyter Notebook that contains code to evaluate a Retrieval-Augmented Generation (RAG) system.
 
 ## Usage Example
@@ -49,7 +49,10 @@ The assistant will generate a response based solely on verified contextual infor
   - `pandas` and `numpy` for data manipulation
   - `scikit-learn` for additional text processing techniques
 
+# Run Local
 ## Installation Instructions
+
+
 
 First, you need to initialize Elasticsearch by running:
 
@@ -78,3 +81,17 @@ http://localhost:8501/
 And you can start to ask
 
 ![Housing Policy Assistant](image.png)
+
+
+# Run Docker
+
+```
+docker compose up
+```
+
+visit
+
+
+```
+http://localhost:8501/
+```
